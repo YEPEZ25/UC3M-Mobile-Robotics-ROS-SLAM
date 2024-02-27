@@ -18,8 +18,10 @@ map_data = None
 map_data_lock = Lock()  # Crear un Lock para sincronizar el acceso a map_data
 
 def map_callback(map_msg):
+    global map_data
+    with map_data_lock:  # Asegurar acceso exclusivo a map_data
+        map_data = map_msg
     print('Mapa recibido')
-    map_data = map_msg
     visualize_map(map_data)
     reduced_map = extract_reduced_map(map_data)
     visualize_reduced_map(reduced_map)
