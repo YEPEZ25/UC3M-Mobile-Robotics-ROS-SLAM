@@ -5,81 +5,101 @@ import actionlib
 from move_base_msgs.msg import MoveBaseAction, MoveBaseGoal
 from nav_msgs.msg import OccupancyGrid
 from random import randint
-import numpy as np
-import time
 
-class MapExplorer:
-    def __init__(self):
-        rospy.init_node('map_explorer', anonymous=True)
-        self.map_data = None
-        self.map_subscriber = rospy.Subscriber('/map', OccupancyGrid, self.map_callback)
-        self.goal_client = actionlib.SimpleActionClient('move_base', MoveBaseAction)
-        self.goal_client.wait_for_server()
-        self.explored_cells = set()
+# Variables globales para mantener un registro de los puntos explorados
+explored_points = set()
 
-    def map_callback(self, map_msg):
-        rospy.loginfo('Mapa recibido')
-        self.map_data = map_msg
-        self.explore()
+def map_callback(map_msg):
+    print('Mapa recibido')
+    map_data = map_msg
+    select_and_publish_goal(map_data)
 
-    def explore(self):
-        if self.map_data is not None:
-            rospy.loginfo('Explorando el mapa...')
-            width = self.map_data.info.width
-            height = self.map_data.info.height
-            resolution = self.map_data.info.resolution
+def select_and_publish_goal(map_data):
+    if map_data is not None:
+        print('Eligiendo destino...')
+        width = map_data.info.width
+        height = map_data.info.height
 
-            # Obtener coordenadas de los puntos no explorados
-            unexplored_points = []
-            for y in range(height):
-                for x in range(width):
-                    index = int(y * width + x)  # Convertir a entero
-                    if self.map_data.data[index] == -1 and (x, y) not in self.explored_cells:
-                        unexplored_points.append([x * resolution + self.map_data.info.origin.position.x,
-                                                  y * resolution + self.map_data.info.origin.position.y])
+        # Variables para rastrear el mejor destino
+        best_x = None
+        best_y = None
+        best_score = float('-inf')  # Inicializado con el peor puntaje posible
 
-            if unexplored_points:
-                # Elegir el punto con la mayor cantidad de valores -1
-                max_count_point = max(unexplored_points, key=lambda point: self.count_adjacent_cells(point[0], point[1]))
+        for y in range(height):
+            for x in range(width):
+                index = y * width + x
 
-                rospy.loginfo(f"Navegando hacia ({max_count_point[0]}, {max_count_point[1]})...")
-                goal = MoveBaseGoal()
-                goal.target_pose.header.frame_id = "map"
-                goal.target_pose.header.stamp = rospy.Time.now()
-                goal.target_pose.pose.position.x = max_count_point[0]
-                goal.target_pose.pose.position.y = max_count_point[1]
-                goal.target_pose.pose.orientation.w = 1.0
+                # Verificar si el punto no ha sido explorado y es un área potencialmente interesante (-1)
+                if map_data.data[index] == -1 and (x, y) not in explored_points:
+                    # Calcular puntaje para este punto basado en la cantidad de -1 alrededor
+                    score = calculate_score(map_data, x, y)
 
-                self.goal_client.send_goal(goal)
-                self.goal_client.wait_for_result()
+                    if score > best_score:
+                        best_score = score
+                        best_x = x
+                        best_y = y
 
-                rospy.loginfo(f"Posición ({max_count_point[0]}, {max_count_point[1]}) alcanzada!")
+        if best_x is not None and best_y is not None:
+            print('Destino elegido. Navegando hasta el punto...')
+            goal_client = actionlib.SimpleActionClient('move_base', MoveBaseAction)
+            goal_client.wait_for_server()
 
-                # Agregar el punto explorado a la lista de celdas exploradas
-                self.explored_cells.add((max_count_point[0], max_count_point[1]))
-            else:
-                rospy.loginfo("¡Todos los puntos están explorados!")
+            goal = MoveBaseGoal()
+            goal.target_pose.header.frame_id = "map"
+            goal.target_pose.header.stamp = rospy.Time.now()
+            goal.target_pose.pose.position.x = best_x * map_data.info.resolution + map_data.info.origin.position.x
+            goal.target_pose.pose.position.y = best_y * map_data.info.resolution + map_data.info.origin.position.y
+            goal.target_pose.pose.orientation.w = 1.0
 
-            rospy.loginfo('Exploración terminada.')
+            goal_client.send_goal(goal)
+            wait = goal_client.wait_for_result()
 
-    def count_adjacent_cells(self, x, y):
-        # Contar la cantidad de celdas adyacentes con valor -1 al punto (x, y)
-        count = 0
+            # Agregar el punto a los puntos explorados
+            explored_points.add((best_x, best_y))
+
+            print('Punto alcanzado!')
+        else:
+            print('No se encontraron destinos adecuados. Rotando hacia otra dirección...')
+            # Enviar una orden de rotación hacia otra dirección
+            goal_client = actionlib.SimpleActionClient('move_base', MoveBaseAction)
+            goal_client.wait_for_server()
+
+            goal = MoveBaseGoal()
+            goal.target_pose.header.frame_id = "base_link"  # Rotación relativa al robot
+            goal.target_pose.header.stamp = rospy.Time.now()
+            goal.target_pose.pose.orientation.z = 1.0  # Rotar 180 grados
+
+            goal_client.send_goal(goal)
+            wait = goal_client.wait_for_result()
+
+def calculate_score(map_data, x, y):
+    width = map_data.info.width
+    height = map_data.info.height
+    score = 0
+
+    # Recorrer los vecinos del punto y contar cuántos son -1
+    for dy in range(-1, 2):
         for dx in range(-1, 2):
-            for dy in range(-1, 2):
-                if dx == 0 and dy == 0:
-                    continue
-                nx, ny = x + dx, y + dy
-                if 0 <= nx < self.map_data.info.width and 0 <= ny < self.map_data.info.height:
-                    index = int(ny * self.map_data.info.width + nx)  # Convertir a entero
-                    if self.map_data.data[index] == -1:
-                        count += 1
-        return count
+            nx = x + dx
+            ny = y + dy
+
+            if 0 <= nx < width and 0 <= ny < height:
+                index = ny * width + nx
+                if map_data.data[index] == -1:
+                    score += 1
+
+    return score
 
 if __name__ == '__main__':
     try:
-        explorer = MapExplorer()
-        rospy.spin()
+        rospy.init_node('exploration', anonymous=True)
+        map_data = None
+        map_subscriber = rospy.Subscriber('/map', OccupancyGrid, map_callback)
+        
+        rate = rospy.Rate(1)
+
+        while not rospy.is_shutdown():
+            rate.sleep()
 
     except rospy.ROSInterruptException:
         rospy.loginfo("Exploración terminada.")
