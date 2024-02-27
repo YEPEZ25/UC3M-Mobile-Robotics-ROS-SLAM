@@ -6,13 +6,73 @@ from move_base_msgs.msg import MoveBaseAction, MoveBaseGoal
 from nav_msgs.msg import OccupancyGrid
 from random import randint
 
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib.colors import LinearSegmentedColormap
+import csv
+
 # Variables globales para mantener un registro de los puntos explorados
 explored_points = set()
 
 def map_callback(map_msg):
     print('Mapa recibido')
     map_data = map_msg
+    visualize_map(map_data)
+    reduced_map = extract_reduced_map(map_data)
+    visualize_reduced_map(reduced_map)
+    save_map_to_csv(reduced_map)
     select_and_publish_goal(map_data)
+
+def visualize_map(map_data):
+    if map_data is not None:
+        print('Visualizando mapa...')
+        width = map_data.info.width
+        height = map_data.info.height
+        data = map_data.data
+        grid = np.array(data).reshape((height, width))
+
+        plt.imshow(grid, cmap='jet', interpolation='nearest', vmin=0, vmax=100)  # Limitando la escala de colores
+        plt.colorbar()
+        plt.title('Mapa de ocupación')
+        plt.xlabel('X')
+        plt.ylabel('Y')
+        plt.show()
+def extract_reduced_map(map_data):
+    if map_data is not None:
+        print('Extrayendo región reducida...')
+        width = map_data.info.width
+        height = map_data.info.height
+        data = map_data.data
+        grid = np.array(data).reshape((height, width))
+
+        border_indices = np.where(grid == 100)
+        min_row, max_row = min(border_indices[0]), max(border_indices[0])
+        min_col, max_col = min(border_indices[1]), max(border_indices[1])
+
+        reduced_map = grid[min_row:max_row+1, min_col:max_col+1]
+
+        return reduced_map
+def visualize_reduced_map(reduced_map):
+    print('Visualizando región reducida...')
+    
+    # Definir el mapa de colores personalizado
+    cmap_colors = [(0, 0, 0), (0.5, 0.5, 0.5), (1, 0, 0)]  # Negro, Gris, Rojo
+    cmap = LinearSegmentedColormap.from_list('CustomMap', cmap_colors, N=3)
+    
+    plt.imshow(reduced_map, cmap=cmap, interpolation='nearest', vmin=-1, vmax=100)
+    plt.colorbar(ticks=[-1, 0, 100])
+    plt.title('Región reducida')
+    plt.xlabel('X')
+    plt.ylabel('Y')
+    plt.show()    
+def save_map_to_csv(reduced_map):
+    if reduced_map is not None:
+        print('Guardando región reducida en archivo CSV...')
+        with open('reduced_map.csv', 'w', newline='') as csvfile:
+            writer = csv.writer(csvfile)
+            for row in reduced_map:
+                writer.writerow(row)
+        print('Mapa guardado en map_data.csv')
 
 def select_and_publish_goal(map_data):
     if map_data is not None:
