@@ -10,9 +10,12 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.colors import LinearSegmentedColormap
 import csv
+from threading import Lock  # Importar Lock
 
 # Variables globales para mantener un registro de los puntos explorados
 explored_points = set()
+map_data = None
+map_data_lock = Lock()  # Crear un Lock para sincronizar el acceso a map_data
 
 def map_callback(map_msg):
     print('Mapa recibido')
