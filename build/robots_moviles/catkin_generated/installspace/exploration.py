@@ -1,10 +1,15 @@
 #!/usr/bin/env python3
+<<<<<<< HEAD
+=======
+
+>>>>>>> 022097bbb771e3bb79f85a5fd84ee629f95f3c0b
 import rospy
 import actionlib
 from move_base_msgs.msg import MoveBaseAction, MoveBaseGoal
 from nav_msgs.msg import OccupancyGrid
 from random import randint
 
+<<<<<<< HEAD
 import matplotlib.pyplot as plt
 from matplotlib.colors import ListedColormap
 import numpy as np
@@ -104,10 +109,19 @@ def extract_reduced_map(map_matriz,map_data):
 def select_and_publish_goal(map_msg):
     global map_data
     map_data = map_msg
+=======
+def map_callback(map_msg):
+    print('Mapa recibido')
+    map_data = map_msg
+    select_and_publish_goal(map_data)
+
+def select_and_publish_goal(map_data):
+>>>>>>> 022097bbb771e3bb79f85a5fd84ee629f95f3c0b
     if map_data is not None:
         print('Eligiendo destino...')
         width = map_data.info.width
         height = map_data.info.height
+<<<<<<< HEAD
         total_cells = width * height
         max_unknown_cells = 0
         best_x, best_y = 0, 0
@@ -195,4 +209,45 @@ if __name__ == '__main__':
     except rospy.ROSInterruptException:
         save_map_data_to_excel(map_data,'map_data_' + str(counter) + '.xlsx')
         visualize_map_data('map_data_' + str(counter) + '.xlsx')
+=======
+
+        goalFound = False;
+        while not goalFound:
+            random_x = randint(0, width - 1)
+            random_y = randint(0, height - 1)
+            index = random_y * width + random_x
+
+            if map_data.data[index] == 0:
+                goalFound = True;
+
+        print('Destino elegido. Navegando hasta el punto...')
+
+        goal_client = actionlib.SimpleActionClient('move_base',MoveBaseAction)
+        goal_client.wait_for_server()
+        
+        goal = MoveBaseGoal()
+        goal.target_pose.header.frame_id = "map"
+        goal.target_pose.header.stamp = rospy.Time.now()
+        goal.target_pose.pose.position.x = random_x * map_data.info.resolution + map_data.info.origin.position.x
+        goal.target_pose.pose.position.y = random_y * map_data.info.resolution + map_data.info.origin.position.y
+        goal.target_pose.pose.orientation.w = 1.0
+
+        goal_client.send_goal(goal)
+        wait = goal_client.wait_for_result()
+        print('Punto alcanzado!')
+
+
+if __name__ == '__main__':
+    try:
+        rospy.init_node('exploration', anonymous=True)
+        map_data = None
+        map_subscriber = rospy.Subscriber('/map', OccupancyGrid, map_callback)
+        
+        rate = rospy.Rate(1)
+
+        while not rospy.is_shutdown():
+            rate.sleep()
+
+    except rospy.ROSInterruptException:
+>>>>>>> 022097bbb771e3bb79f85a5fd84ee629f95f3c0b
         rospy.loginfo("Exploration finished.")

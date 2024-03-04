@@ -19,22 +19,38 @@ add_custom_target(turtlebot3_example_generate_messages ALL)
 
 get_filename_component(_filename "/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3Action.msg" NAME_WE)
 add_custom_target(_turtlebot3_example_generate_messages_check_deps_${_filename}
+<<<<<<< HEAD
   COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "turtlebot3_example" "/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3Action.msg" "turtlebot3_example/Turtlebot3ActionResult:turtlebot3_example/Turtlebot3ActionFeedback:turtlebot3_example/Turtlebot3Goal:actionlib_msgs/GoalID:geometry_msgs/Vector3:turtlebot3_example/Turtlebot3Feedback:turtlebot3_example/Turtlebot3Result:std_msgs/Header:actionlib_msgs/GoalStatus:turtlebot3_example/Turtlebot3ActionGoal"
+=======
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "turtlebot3_example" "/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3Action.msg" "actionlib_msgs/GoalStatus:turtlebot3_example/Turtlebot3Goal:turtlebot3_example/Turtlebot3ActionGoal:turtlebot3_example/Turtlebot3ActionResult:turtlebot3_example/Turtlebot3ActionFeedback:actionlib_msgs/GoalID:geometry_msgs/Vector3:turtlebot3_example/Turtlebot3Result:turtlebot3_example/Turtlebot3Feedback:std_msgs/Header"
+>>>>>>> 022097bbb771e3bb79f85a5fd84ee629f95f3c0b
 )
 
 get_filename_component(_filename "/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3ActionGoal.msg" NAME_WE)
 add_custom_target(_turtlebot3_example_generate_messages_check_deps_${_filename}
+<<<<<<< HEAD
   COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "turtlebot3_example" "/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3ActionGoal.msg" "geometry_msgs/Vector3:turtlebot3_example/Turtlebot3Goal:std_msgs/Header:actionlib_msgs/GoalID"
+=======
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "turtlebot3_example" "/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3ActionGoal.msg" "turtlebot3_example/Turtlebot3Goal:actionlib_msgs/GoalID:geometry_msgs/Vector3:std_msgs/Header"
+>>>>>>> 022097bbb771e3bb79f85a5fd84ee629f95f3c0b
 )
 
 get_filename_component(_filename "/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3ActionResult.msg" NAME_WE)
 add_custom_target(_turtlebot3_example_generate_messages_check_deps_${_filename}
+<<<<<<< HEAD
   COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "turtlebot3_example" "/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3ActionResult.msg" "std_msgs/Header:actionlib_msgs/GoalStatus:actionlib_msgs/GoalID:turtlebot3_example/Turtlebot3Result"
+=======
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "turtlebot3_example" "/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3ActionResult.msg" "actionlib_msgs/GoalStatus:actionlib_msgs/GoalID:turtlebot3_example/Turtlebot3Result:std_msgs/Header"
+>>>>>>> 022097bbb771e3bb79f85a5fd84ee629f95f3c0b
 )
 
 get_filename_component(_filename "/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3ActionFeedback.msg" NAME_WE)
 add_custom_target(_turtlebot3_example_generate_messages_check_deps_${_filename}
+<<<<<<< HEAD
   COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "turtlebot3_example" "/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3ActionFeedback.msg" "turtlebot3_example/Turtlebot3Feedback:std_msgs/Header:actionlib_msgs/GoalStatus:actionlib_msgs/GoalID"
+=======
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "turtlebot3_example" "/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3ActionFeedback.msg" "actionlib_msgs/GoalStatus:actionlib_msgs/GoalID:std_msgs/Header:turtlebot3_example/Turtlebot3Feedback"
+>>>>>>> 022097bbb771e3bb79f85a5fd84ee629f95f3c0b
 )
 
 get_filename_component(_filename "/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3Goal.msg" NAME_WE)
@@ -61,25 +77,41 @@ add_custom_target(_turtlebot3_example_generate_messages_check_deps_${_filename}
 _generate_msg_cpp(turtlebot3_example
   "/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3Action.msg"
   "${MSG_I_FLAGS}"
+<<<<<<< HEAD
   "/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3ActionResult.msg;/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3ActionFeedback.msg;/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3Goal.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Vector3.msg;/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3Feedback.msg;/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3Result.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3ActionGoal.msg"
+=======
+  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3Goal.msg;/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3ActionGoal.msg;/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3ActionResult.msg;/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3ActionFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Vector3.msg;/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3Result.msg;/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3Feedback.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+>>>>>>> 022097bbb771e3bb79f85a5fd84ee629f95f3c0b
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/turtlebot3_example
 )
 _generate_msg_cpp(turtlebot3_example
   "/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3ActionGoal.msg"
   "${MSG_I_FLAGS}"
+<<<<<<< HEAD
   "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Vector3.msg;/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3Goal.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
+=======
+  "/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3Goal.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Vector3.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+>>>>>>> 022097bbb771e3bb79f85a5fd84ee629f95f3c0b
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/turtlebot3_example
 )
 _generate_msg_cpp(turtlebot3_example
   "/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3ActionResult.msg"
   "${MSG_I_FLAGS}"
+<<<<<<< HEAD
   "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3Result.msg"
+=======
+  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3Result.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+>>>>>>> 022097bbb771e3bb79f85a5fd84ee629f95f3c0b
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/turtlebot3_example
 )
 _generate_msg_cpp(turtlebot3_example
   "/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3ActionFeedback.msg"
   "${MSG_I_FLAGS}"
+<<<<<<< HEAD
   "/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3Feedback.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
+=======
+  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3Feedback.msg"
+>>>>>>> 022097bbb771e3bb79f85a5fd84ee629f95f3c0b
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/turtlebot3_example
 )
 _generate_msg_cpp(turtlebot3_example
@@ -142,25 +174,41 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS turtlebot3_example_generate_message
 _generate_msg_eus(turtlebot3_example
   "/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3Action.msg"
   "${MSG_I_FLAGS}"
+<<<<<<< HEAD
   "/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3ActionResult.msg;/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3ActionFeedback.msg;/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3Goal.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Vector3.msg;/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3Feedback.msg;/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3Result.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3ActionGoal.msg"
+=======
+  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3Goal.msg;/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3ActionGoal.msg;/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3ActionResult.msg;/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3ActionFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Vector3.msg;/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3Result.msg;/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3Feedback.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+>>>>>>> 022097bbb771e3bb79f85a5fd84ee629f95f3c0b
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/turtlebot3_example
 )
 _generate_msg_eus(turtlebot3_example
   "/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3ActionGoal.msg"
   "${MSG_I_FLAGS}"
+<<<<<<< HEAD
   "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Vector3.msg;/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3Goal.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
+=======
+  "/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3Goal.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Vector3.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+>>>>>>> 022097bbb771e3bb79f85a5fd84ee629f95f3c0b
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/turtlebot3_example
 )
 _generate_msg_eus(turtlebot3_example
   "/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3ActionResult.msg"
   "${MSG_I_FLAGS}"
+<<<<<<< HEAD
   "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3Result.msg"
+=======
+  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3Result.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+>>>>>>> 022097bbb771e3bb79f85a5fd84ee629f95f3c0b
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/turtlebot3_example
 )
 _generate_msg_eus(turtlebot3_example
   "/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3ActionFeedback.msg"
   "${MSG_I_FLAGS}"
+<<<<<<< HEAD
   "/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3Feedback.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
+=======
+  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3Feedback.msg"
+>>>>>>> 022097bbb771e3bb79f85a5fd84ee629f95f3c0b
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/turtlebot3_example
 )
 _generate_msg_eus(turtlebot3_example
@@ -223,25 +271,41 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS turtlebot3_example_generate_message
 _generate_msg_lisp(turtlebot3_example
   "/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3Action.msg"
   "${MSG_I_FLAGS}"
+<<<<<<< HEAD
   "/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3ActionResult.msg;/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3ActionFeedback.msg;/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3Goal.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Vector3.msg;/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3Feedback.msg;/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3Result.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3ActionGoal.msg"
+=======
+  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3Goal.msg;/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3ActionGoal.msg;/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3ActionResult.msg;/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3ActionFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Vector3.msg;/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3Result.msg;/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3Feedback.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+>>>>>>> 022097bbb771e3bb79f85a5fd84ee629f95f3c0b
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/turtlebot3_example
 )
 _generate_msg_lisp(turtlebot3_example
   "/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3ActionGoal.msg"
   "${MSG_I_FLAGS}"
+<<<<<<< HEAD
   "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Vector3.msg;/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3Goal.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
+=======
+  "/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3Goal.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Vector3.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+>>>>>>> 022097bbb771e3bb79f85a5fd84ee629f95f3c0b
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/turtlebot3_example
 )
 _generate_msg_lisp(turtlebot3_example
   "/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3ActionResult.msg"
   "${MSG_I_FLAGS}"
+<<<<<<< HEAD
   "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3Result.msg"
+=======
+  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3Result.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+>>>>>>> 022097bbb771e3bb79f85a5fd84ee629f95f3c0b
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/turtlebot3_example
 )
 _generate_msg_lisp(turtlebot3_example
   "/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3ActionFeedback.msg"
   "${MSG_I_FLAGS}"
+<<<<<<< HEAD
   "/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3Feedback.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
+=======
+  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3Feedback.msg"
+>>>>>>> 022097bbb771e3bb79f85a5fd84ee629f95f3c0b
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/turtlebot3_example
 )
 _generate_msg_lisp(turtlebot3_example
@@ -304,25 +368,41 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS turtlebot3_example_generate_message
 _generate_msg_nodejs(turtlebot3_example
   "/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3Action.msg"
   "${MSG_I_FLAGS}"
+<<<<<<< HEAD
   "/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3ActionResult.msg;/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3ActionFeedback.msg;/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3Goal.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Vector3.msg;/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3Feedback.msg;/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3Result.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3ActionGoal.msg"
+=======
+  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3Goal.msg;/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3ActionGoal.msg;/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3ActionResult.msg;/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3ActionFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Vector3.msg;/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3Result.msg;/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3Feedback.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+>>>>>>> 022097bbb771e3bb79f85a5fd84ee629f95f3c0b
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/turtlebot3_example
 )
 _generate_msg_nodejs(turtlebot3_example
   "/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3ActionGoal.msg"
   "${MSG_I_FLAGS}"
+<<<<<<< HEAD
   "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Vector3.msg;/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3Goal.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
+=======
+  "/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3Goal.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Vector3.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+>>>>>>> 022097bbb771e3bb79f85a5fd84ee629f95f3c0b
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/turtlebot3_example
 )
 _generate_msg_nodejs(turtlebot3_example
   "/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3ActionResult.msg"
   "${MSG_I_FLAGS}"
+<<<<<<< HEAD
   "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3Result.msg"
+=======
+  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3Result.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+>>>>>>> 022097bbb771e3bb79f85a5fd84ee629f95f3c0b
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/turtlebot3_example
 )
 _generate_msg_nodejs(turtlebot3_example
   "/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3ActionFeedback.msg"
   "${MSG_I_FLAGS}"
+<<<<<<< HEAD
   "/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3Feedback.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
+=======
+  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3Feedback.msg"
+>>>>>>> 022097bbb771e3bb79f85a5fd84ee629f95f3c0b
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/turtlebot3_example
 )
 _generate_msg_nodejs(turtlebot3_example
@@ -385,25 +465,41 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS turtlebot3_example_generate_message
 _generate_msg_py(turtlebot3_example
   "/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3Action.msg"
   "${MSG_I_FLAGS}"
+<<<<<<< HEAD
   "/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3ActionResult.msg;/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3ActionFeedback.msg;/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3Goal.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Vector3.msg;/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3Feedback.msg;/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3Result.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3ActionGoal.msg"
+=======
+  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3Goal.msg;/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3ActionGoal.msg;/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3ActionResult.msg;/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3ActionFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Vector3.msg;/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3Result.msg;/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3Feedback.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+>>>>>>> 022097bbb771e3bb79f85a5fd84ee629f95f3c0b
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/turtlebot3_example
 )
 _generate_msg_py(turtlebot3_example
   "/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3ActionGoal.msg"
   "${MSG_I_FLAGS}"
+<<<<<<< HEAD
   "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Vector3.msg;/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3Goal.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
+=======
+  "/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3Goal.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Vector3.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+>>>>>>> 022097bbb771e3bb79f85a5fd84ee629f95f3c0b
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/turtlebot3_example
 )
 _generate_msg_py(turtlebot3_example
   "/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3ActionResult.msg"
   "${MSG_I_FLAGS}"
+<<<<<<< HEAD
   "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3Result.msg"
+=======
+  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3Result.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+>>>>>>> 022097bbb771e3bb79f85a5fd84ee629f95f3c0b
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/turtlebot3_example
 )
 _generate_msg_py(turtlebot3_example
   "/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3ActionFeedback.msg"
   "${MSG_I_FLAGS}"
+<<<<<<< HEAD
   "/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3Feedback.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
+=======
+  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/johnny/catkin_ws/devel/share/turtlebot3_example/msg/Turtlebot3Feedback.msg"
+>>>>>>> 022097bbb771e3bb79f85a5fd84ee629f95f3c0b
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/turtlebot3_example
 )
 _generate_msg_py(turtlebot3_example

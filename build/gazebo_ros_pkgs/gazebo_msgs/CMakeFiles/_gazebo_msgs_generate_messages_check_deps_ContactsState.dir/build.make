@@ -54,7 +54,11 @@ CMAKE_BINARY_DIR = /home/johnny/catkin_ws/build
 include gazebo_ros_pkgs/gazebo_msgs/CMakeFiles/_gazebo_msgs_generate_messages_check_deps_ContactsState.dir/progress.make
 
 gazebo_ros_pkgs/gazebo_msgs/CMakeFiles/_gazebo_msgs_generate_messages_check_deps_ContactsState:
+<<<<<<< HEAD
 	cd /home/johnny/catkin_ws/build/gazebo_ros_pkgs/gazebo_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py gazebo_msgs /home/johnny/catkin_ws/src/gazebo_ros_pkgs/gazebo_msgs/msg/ContactsState.msg std_msgs/Header:geometry_msgs/Vector3:gazebo_msgs/ContactState:geometry_msgs/Wrench
+=======
+	cd /home/johnny/catkin_ws/build/gazebo_ros_pkgs/gazebo_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py gazebo_msgs /home/johnny/catkin_ws/src/gazebo_ros_pkgs/gazebo_msgs/msg/ContactsState.msg geometry_msgs/Vector3:gazebo_msgs/ContactState:std_msgs/Header:geometry_msgs/Wrench
+>>>>>>> 022097bbb771e3bb79f85a5fd84ee629f95f3c0b
 
 _gazebo_msgs_generate_messages_check_deps_ContactsState: gazebo_ros_pkgs/gazebo_msgs/CMakeFiles/_gazebo_msgs_generate_messages_check_deps_ContactsState
 _gazebo_msgs_generate_messages_check_deps_ContactsState: gazebo_ros_pkgs/gazebo_msgs/CMakeFiles/_gazebo_msgs_generate_messages_check_deps_ContactsState.dir/build.make
