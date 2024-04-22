@@ -9,7 +9,9 @@ Terminal 2:
             
             roslaunch turtlebot3_slam turtlebot3_gmapping.launch
 
-Terminal 3: cd catkin_ws/src/turtlebot3/turtlebot3_navigation/rviz/
+Terminal 3: 
+
+            cd catkin_ws/src/turtlebot3/turtlebot3_navigation/rviz/
 
             rviz -d turtlebot3_navigation.rviz
 
